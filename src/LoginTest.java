@@ -25,10 +25,10 @@ public class LoginTest {
         System.setProperty("webdriver.chrome.verboseLogging", "true");
 
 
-        // Create a new instance of the ChromeDriver
+        // ChromeDriver
         WebDriver driver = new ChromeDriver(options);
 
-        // Scenario 1: Log in using standard user
+        // Log in using standard user
         driver.get("https://www.saucedemo.com/");
         WebElement usernameInput = driver.findElement(By.id("user-name"));
         WebElement passwordInput = driver.findElement(By.id("password"));
@@ -67,7 +67,7 @@ public class LoginTest {
         passwordInput = driver.findElement(By.id("password"));
         loginButton = driver.findElement(By.id("login-button"));
 
-        // Scenario 2: Log in using locked out user
+        //Log in using locked out user
         usernameInput.sendKeys("locked_out_user");
         passwordInput.sendKeys("secret_sauce");
         loginButton.click();
@@ -75,9 +75,9 @@ public class LoginTest {
         // Verify error message
         WebElement errorMessage = driver.findElement(By.cssSelector("[data-test='error']"));
         if (errorMessage.isDisplayed() && errorMessage.getText().equals("Sorry,user has been locked out.")) {
-            System.out.println("Locked out user login error message verified.");
+            System.out.println("Locked out user error message verified.");
         } else {
-            System.out.println("Locked out user login error message not found.");
+            System.out.println("Error not found");
         }
 
         // Quit the browser
